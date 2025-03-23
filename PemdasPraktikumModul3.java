@@ -521,101 +521,101 @@ public class PemdasPraktikumModul3 {
                             instance.hitungRoyalti(royaltiBuku); // "instance." ini bekerjasama dengan atasnya persis biar manggil BandingkanBuku() tanpa static
                         } else {
                             System.out.println("Tidak dapat membandingkan buku karena input tidak valid.");
-                        } break;
+                        } 
                         
-                    }
-
-                    case "persen":
+                        break;
+                        
+                        case "persen":
                     System.out.println("Masukkan buku yang ingin dicek royaltinya dengan menulis persen secara manual:");
-                        String[] inputRoyalti = input.nextLine().split(" ");
-                        String royaltiKategori = inputRoyalti[0].toLowerCase();
-                        String royaltiJudul = inputRoyalti[1].toLowerCase();
-                        String persennya = inputRoyalti[2];
+                        String[] inputRoyalti2 = input.nextLine().split(" ");
+                        String royaltiKategori2 = inputRoyalti2[0].toLowerCase();
+                        String royaltiJudul2 = inputRoyalti2[1].toLowerCase();
+                        String persennya = inputRoyalti2[2];
 
                         double persen = Double.parseDouble(persennya);
 
-                        Object royaltiBuku = null;
+                        Object royaltiBuku2 = null;
 
-                        switch(royaltiKategori){
+                        switch(royaltiKategori2){
                             case "t":
-                            royaltiBuku = new teknologi();
-                                switch(royaltiJudul){
-                                    case "a": ((teknologi) royaltiBuku).buku1("Cara Membuat AI Girlfriend", "Gopi"); break;
-                                    case "b": ((teknologi) royaltiBuku).buku2("Cara Membajak laptop Dewa", "Gopi"); break;
-                                    case "c": ((teknologi) royaltiBuku).buku3("Duri Smart City 2077", "Akhmad"); break;
-                                    case "d": ((teknologi) royaltiBuku).buku4("di Masa Depan Indonesia Sudah Mengapung", "Ayunda Risu"); break;
-                                    case "e": ((teknologi) royaltiBuku).buku5("Cara Membuat Turret Air di Depan Rumah yang Aktif Menembaki Suami yang Telat Pulang", "Amelia Sukarnoputri"); break;
+                            royaltiBuku2 = new teknologi();
+                                switch(royaltiJudul2){
+                                    case "a": ((teknologi) royaltiBuku2).buku1("Cara Membuat AI Girlfriend", "Gopi"); break;
+                                    case "b": ((teknologi) royaltiBuku2).buku2("Cara Membajak laptop Dewa", "Gopi"); break;
+                                    case "c": ((teknologi) royaltiBuku2).buku3("Duri Smart City 2077", "Akhmad"); break;
+                                    case "d": ((teknologi) royaltiBuku2).buku4("di Masa Depan Indonesia Sudah Mengapung", "Ayunda Risu"); break;
+                                    case "e": ((teknologi) royaltiBuku2).buku5("Cara Membuat Turret Air di Depan Rumah yang Aktif Menembaki Suami yang Telat Pulang", "Amelia Sukarnoputri"); break;
                                     default: System.out.println("Judul tidak valid untuk kategori Teknologi."); break;
                                 }
                                 break;
                             case "f":
-                            royaltiBuku = new filsafat();
-                                switch (royaltiJudul) {
-                                    case "f": ((filsafat) royaltiBuku).buku1("Wong Liyo Ngerti Opo", "Udin"); break;
-                                    case "g": ((filsafat) royaltiBuku).buku2("Aku Ada Maka Aku Salto", "Rudi Tabooti"); break;
-                                    case "h": ((filsafat) royaltiBuku).buku3("Manusia Hanyalah Alat", "Samuel"); break;
-                                    case "i": ((filsafat) royaltiBuku).buku4("Sehat Pangkal Hidup", "Hafiz dan Udin"); break;
-                                    case "j": ((filsafat) royaltiBuku).buku5("Aku Hidup Untuk Mati, Aku Mati Untuk Kamu", "Dewa and Syah"); break;
+                            royaltiBuku2 = new filsafat();
+                                switch (royaltiJudul2) {
+                                    case "f": ((filsafat) royaltiBuku2).buku1("Wong Liyo Ngerti Opo", "Udin"); break;
+                                    case "g": ((filsafat) royaltiBuku2).buku2("Aku Ada Maka Aku Salto", "Rudi Tabooti"); break;
+                                    case "h": ((filsafat) royaltiBuku2).buku3("Manusia Hanyalah Alat", "Samuel"); break;
+                                    case "i": ((filsafat) royaltiBuku2).buku4("Sehat Pangkal Hidup", "Hafiz dan Udin"); break;
+                                    case "j": ((filsafat) royaltiBuku2).buku5("Aku Hidup Untuk Mati, Aku Mati Untuk Kamu", "Dewa and Syah"); break;
                                     default: System.out.println("Judul tidak valid untuk kategori Filsafat."); break;
                                 }
                                 break;
 
                             case "s":
-                            royaltiBuku = new sejarah();
-                                switch (royaltiJudul) {
-                                case "k": ((sejarah) royaltiBuku).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break;
-                                case "l": ((sejarah) royaltiBuku).buku2("Indonesia Merdeka pada 1900", "Suwekarno"); break;
-                                case "m": ((sejarah) royaltiBuku).buku3("Duri Ibukota Indonesia Tahun 2000", "Garylbert"); break;
-                                case "n": ((sejarah) royaltiBuku).buku4("Hitler Mati di Nganjuk", "Amelia Watson"); break;
-                                case "o": ((sejarah) royaltiBuku).buku5("List istri istri Hafiz kalau jadi presiden saat 1945", "Adolf Kamasyamsi"); break;
+                            royaltiBuku2 = new sejarah();
+                                switch (royaltiJudul2) {
+                                case "k": ((sejarah) royaltiBuku2).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break;
+                                case "l": ((sejarah) royaltiBuku2).buku2("Indonesia Merdeka pada 1900", "Suwekarno"); break;
+                                case "m": ((sejarah) royaltiBuku2).buku3("Duri Ibukota Indonesia Tahun 2000", "Garylbert"); break;
+                                case "n": ((sejarah) royaltiBuku2).buku4("Hitler Mati di Nganjuk", "Amelia Watson"); break;
+                                case "o": ((sejarah) royaltiBuku2).buku5("List istri istri Hafiz kalau jadi presiden saat 1945", "Adolf Kamasyamsi"); break;
                                 default: System.out.println("Judul tidak valid untuk kategori Sejarah."); break;
                                 }
                                 break;
 
                             case "a":
-                            royaltiBuku = new agama();
-                            switch (royaltiJudul) {
-                                case "p": ((agama) royaltiBuku).buku1("Hukum Mafia Pentol", "Immanuel"); break;
-                                case "q": ((agama) royaltiBuku).buku2("Hukum Rasisme kepada Sesama Kulit", "Akhmad"); break;
-                                case "r": ((agama) royaltiBuku).buku3("Manfaat Berdoa Sebelum Ngasih Contekan", "Hafiz"); break;
-                                case "s": ((agama) royaltiBuku).buku4("Bersabarlah Kepada Teman Beban", "Immanuel"); break;
-                                case "t": ((agama) royaltiBuku).buku5("Berbuat Baiklah agar Di Surga Bisa Minta Waifumu", "Alvin"); break;
+                            royaltiBuku2 = new agama();
+                            switch (royaltiJudul2) {
+                                case "p": ((agama) royaltiBuku2).buku1("Hukum Mafia Pentol", "Immanuel"); break;
+                                case "q": ((agama) royaltiBuku2).buku2("Hukum Rasisme kepada Sesama Kulit", "Akhmad"); break;
+                                case "r": ((agama) royaltiBuku2).buku3("Manfaat Berdoa Sebelum Ngasih Contekan", "Hafiz"); break;
+                                case "s": ((agama) royaltiBuku2).buku4("Bersabarlah Kepada Teman Beban", "Immanuel"); break;
+                                case "t": ((agama) royaltiBuku2).buku5("Berbuat Baiklah agar Di Surga Bisa Minta Waifumu", "Alvin"); break;
                                 default: System.out.println("Judul tidak valid untuk kategori Agama."); break;
                                 }
                                 break;
 
                             case "ps":
-                            royaltiBuku = new psikologi();
-                            switch (royaltiJudul) {
-                                case "u": ((psikologi) royaltiBuku).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break;
-                                case "v": ((psikologi) royaltiBuku).buku2("Atomic Habits", "Gopi dan James"); break;
-                                case "w": ((psikologi) royaltiBuku).buku3("Manfaat Bermain Game Disaat Dosen Mengajar", "Gilbert"); break;
-                                case "x": ((psikologi) royaltiBuku).buku4("Besok Cium Cerminmu Sambil Bilang Kamu Bisa Lolos PTN", "Ahza dan Hasan"); break;
-                                case "y": ((psikologi) royaltiBuku).buku5("Memiliki Kebun Binatang di Rumah Dapat Menyembuhkan Stress tugas Pemjut", "Alvin, Akhmad, Gopi, Hasan, Hazel, dan Ahza"); break;
+                            royaltiBuku2 = new psikologi();
+                            switch (royaltiJudul2) {
+                                case "u": ((psikologi) royaltiBuku2).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break;
+                                case "v": ((psikologi) royaltiBuku2).buku2("Atomic Habits", "Gopi dan James"); break;
+                                case "w": ((psikologi) royaltiBuku2).buku3("Manfaat Bermain Game Disaat Dosen Mengajar", "Gilbert"); break;
+                                case "x": ((psikologi) royaltiBuku2).buku4("Besok Cium Cerminmu Sambil Bilang Kamu Bisa Lolos PTN", "Ahza dan Hasan"); break;
+                                case "y": ((psikologi) royaltiBuku2).buku5("Memiliki Kebun Binatang di Rumah Dapat Menyembuhkan Stress tugas Pemjut", "Alvin, Akhmad, Gopi, Hasan, Hazel, dan Ahza"); break;
                                 default: System.out.println("Judul tidak valid untuk kategori Psikologi."); break;
                                 }
                                 break;
 
                             case "po":
-                            royaltiBuku = new politik();
-                            switch (royaltiJudul) {
-                                case "z": ((politik) royaltiBuku).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break;
-                                case "a1": ((politik) royaltiBuku).buku2("Indonesia Bisa Lock In", "Ridhwan lathifan Faza"); break;
-                                case "b1": ((politik) royaltiBuku).buku3("Manfaat Menjual Pulau Madura ke Amerika", "Rafi Kamasyamsi dan Tian Septian"); break;
-                                case "c1": ((politik) royaltiBuku).buku4("Indonesia Merdeka Sejak Dijajah Inggris", "Ahza Kamil dan Muhammad Alvin Satria"); break;
-                                case "d1": ((politik) royaltiBuku).buku5("Seandainya Indonesia Menjadi Negara Liberalis", "Brian Lathifan"); break;
+                            royaltiBuku2 = new politik();
+                            switch (royaltiJudul2) {
+                                case "z": ((politik) royaltiBuku2).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break;
+                                case "a1": ((politik) royaltiBuku2).buku2("Indonesia Bisa Lock In", "Ridhwan lathifan Faza"); break;
+                                case "b1": ((politik) royaltiBuku2).buku3("Manfaat Menjual Pulau Madura ke Amerika", "Rafi Kamasyamsi dan Tian Septian"); break;
+                                case "c1": ((politik) royaltiBuku2).buku4("Indonesia Merdeka Sejak Dijajah Inggris", "Ahza Kamil dan Muhammad Alvin Satria"); break;
+                                case "d1": ((politik) royaltiBuku2).buku5("Seandainya Indonesia Menjadi Negara Liberalis", "Brian Lathifan"); break;
                                 default: System.out.println("Judul tidak valid untuk kategori Politik."); break;
                                 }
                                 break;
 
                             case "fi":
-                            royaltiBuku = new fiksi();
-                            switch (royaltiJudul) {
-                                case "e1": ((fiksi) royaltiBuku).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break;
-                                case "f1": ((fiksi) royaltiBuku).buku2("Anjingku Memberikan Aku Kekuatan dan Sekarang Aku Harus Mengalahkan Raja Iblis", "Alvin dan Dewa"); break;
-                                case "g1": ((fiksi) royaltiBuku).buku3("Kucingku Berubah Jadi Manusia dan Aku Menikahinya", "Miko Syaiful"); break;
-                                case "h1": ((fiksi) royaltiBuku).buku4("Waifu Setiap Orang di Kota Malang Tiba Tiba Nyata", "Alvin Sukarnoputra"); break;
-                                case "i1": ((fiksi) royaltiBuku).buku5("Pacar Akhmad Seorang Superstar", "Sukarnoputri Gopi"); break;
+                            royaltiBuku2 = new fiksi();
+                            switch (royaltiJudul2) {
+                                case "e1": ((fiksi) royaltiBuku2).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break;
+                                case "f1": ((fiksi) royaltiBuku2).buku2("Anjingku Memberikan Aku Kekuatan dan Sekarang Aku Harus Mengalahkan Raja Iblis", "Alvin dan Dewa"); break;
+                                case "g1": ((fiksi) royaltiBuku2).buku3("Kucingku Berubah Jadi Manusia dan Aku Menikahinya", "Miko Syaiful"); break;
+                                case "h1": ((fiksi) royaltiBuku2).buku4("Waifu Setiap Orang di Kota Malang Tiba Tiba Nyata", "Alvin Sukarnoputra"); break;
+                                case "i1": ((fiksi) royaltiBuku2).buku5("Pacar Akhmad Seorang Superstar", "Sukarnoputri Gopi"); break;
                                 default: System.out.println("Judul tidak valid untuk kategori Fiksi."); break;
                                 }
                                 break;
@@ -625,12 +625,16 @@ public class PemdasPraktikumModul3 {
                             break;
             
                         }
-                        if (royaltiBuku != null) {
+                        if (royaltiBuku2 != null) {
                             PemdasPraktikum instance = new PemdasPraktikum(); // biar bisa menjalankan BandingkanBuku() tanpa static
-                            instance.hitungRoyaltiPersen(royaltiBuku, persen); // "instance." ini bekerjasama dengan atasnya persis biar manggil BandingkanBuku() tanpa static
+                            instance.hitungRoyaltiPersen(royaltiBuku2, persen); // "instance." ini bekerjasama dengan atasnya persis biar manggil BandingkanBuku() tanpa static
                         } else {
                             System.out.println("Tidak dapat membandingkan buku karena input tidak valid.");
                         } break;
+
+                    }
+
+                    
             }
         }
     }
