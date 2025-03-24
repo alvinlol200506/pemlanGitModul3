@@ -642,27 +642,27 @@ public class PemdasPraktikumModul3 {
             }
         }
     }
-    public void BandingkanBuku(Object buku1, Object buku2) { 
-        byte persentase = 0;
+    public void BandingkanBuku(Object buku1, Object buku2) { // ini tugas modul 2, jadi nanti membandingkan objek buku1 dan buku2 yang didapatkan dari method yang dieksekusi dan di get judul, penulis, dan sinopsisnya
+        byte persentase = 0; // nambah setiap ada kesamaan
 
         if (buku1 instanceof teknologi && buku2 instanceof teknologi) {
             teknologi t1 = (teknologi) buku1;
             teknologi t2 = (teknologi) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // ngecek judul objek buku1 dengan objek buku2
+                persentase++; // menambah persentase setiap sama
+            }
+            if (t1.getPenulis().equals(t2.getPenulis())) { // ngecek judul objek buku1 dengan objek buku2
                 persentase++;
             }
-            if (t1.getPenulis().equals(t2.getPenulis())) {
+            if (t1.getSinopsis().equals(t2.getSinopsis())) { // ngecek judul objek buku1 dengan objek buku2
                 persentase++;
             }
-            if (t1.getSinopsis().equals(t2.getSinopsis())) {
-                persentase++;
-            }
-        } else if (buku1 instanceof filsafat && buku2 instanceof filsafat) {
+        } else if (buku1 instanceof filsafat && buku2 instanceof filsafat) { // UNTUK KE BAWAH SAMA SEPERTI YANG TEKNOLOGI
             filsafat t1 = (filsafat) buku1;
             filsafat t2 = (filsafat) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // sama seperti penjelasan sebelumnya
                 persentase++;
             }
             if (t1.getPenulis().equals(t2.getPenulis())) {
@@ -675,7 +675,7 @@ public class PemdasPraktikumModul3 {
             sejarah t1 = (sejarah) buku1;
             sejarah t2 = (sejarah) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // sama seperti penjelasan sebelumnya
                 persentase++;
             }
             if (t1.getPenulis().equals(t2.getPenulis())) {
@@ -688,7 +688,7 @@ public class PemdasPraktikumModul3 {
             agama t1 = (agama) buku1;
             agama t2 = (agama) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // sama seperti penjelasan sebelumnya
                 persentase++;
             }
             if (t1.getPenulis().equals(t2.getPenulis())) {
@@ -701,7 +701,7 @@ public class PemdasPraktikumModul3 {
             psikologi t1 = (psikologi) buku1;
             psikologi t2 = (psikologi) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // sama seperti penjelasan sebelumnya
                 persentase++;
             }
             if (t1.getPenulis().equals(t2.getPenulis())) {
@@ -714,7 +714,7 @@ public class PemdasPraktikumModul3 {
             politik t1 = (politik) buku1;
             politik t2 = (politik) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // sama seperti penjelasan sebelumnya
                 persentase++;
             }
             if (t1.getPenulis().equals(t2.getPenulis())) {
@@ -727,7 +727,7 @@ public class PemdasPraktikumModul3 {
             fiksi t1 = (fiksi) buku1;
             fiksi t2 = (fiksi) buku2;
 
-            if (t1.getJudul().equals(t2.getJudul())) {
+            if (t1.getJudul().equals(t2.getJudul())) { // sama seperti penjelasan sebelumnya
                 persentase++;
             }
             if (t1.getPenulis().equals(t2.getPenulis())) {
@@ -737,60 +737,60 @@ public class PemdasPraktikumModul3 {
                 persentase++;
             }
         }
-        float hasil = (float)persentase/3 * 100;
-        System.out.println("Kesamaan: " + hasil + "%");
+        float hasil = (float)persentase/3 * 100; // memberikan hasil persen dari persentase dibagi 3 dikali 100%
+        System.out.println("Kesamaan: " + hasil + "%"); // ngeprint persen kesamaannya
     }
 
 
 
 
-    public void hitungRoyalti(Object harga){
+    public void hitungRoyalti(Object harga){ // ini yang dikerjakan oleh "royalti saja", tugas modul 3, overloading, bila cuman diisi harga maka ke sini
         if (harga instanceof teknologi) {
             teknologi t1 = (teknologi)harga;
             
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * 0.10; // royalti 10%
-            System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // meminta harga buku dan berapa buku terjual lalu dikali untuk mendapat total pendapatan
+            double royalti = (double)totalPendapatan * 0.10; // menghitung royalti 10% dari total pendapatan
+            System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti); // ngeprint hasilnya
 
         } else if (harga instanceof filsafat) {
             filsafat t1 = (filsafat)harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
             double royalti = (double)totalPendapatan * 0.10; // royalti 10%
             System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof sejarah) {
             sejarah t1 = (sejarah)harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
             double royalti = (double)totalPendapatan * 0.10; // royalti 10%
             System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof agama) {
             agama t1 = (agama)harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
             double royalti = (double)totalPendapatan * 0.10; // royalti 10%
             System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof psikologi) {
             psikologi t1 = (psikologi) harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
             double royalti = (double)totalPendapatan * 0.10; // royalti 10%
             System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof politik) {
             politik t1 = (politik) harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
             double royalti = (double)totalPendapatan * 0.10; // royalti 10%
             System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof fiksi) {
             fiksi t1 = (fiksi) harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
             double royalti = (double)totalPendapatan * 0.10; // royalti 10%
             System.out.println("\nRoyalti 10% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
@@ -800,54 +800,54 @@ public class PemdasPraktikumModul3 {
 
 
 
-    public void hitungRoyaltiPersen(Object harga, double persen){
+    public void hitungRoyaltiPersen(Object harga, double persen){ // ini versi "royalti persen", ini kalau misal diisi harga dan persen
         if (harga instanceof teknologi) {
             teknologi t1 = (teknologi)harga;
             
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
-            System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // meminta harga buku dan berapa buku terjual lalu dikali untuk mendapat total pendapatan
+            double royalti = (double)totalPendapatan * (persen / 100); // menghitung royalti persentase manual dari total pendapatan
+            System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti); // mengeprint royalti dalam persentase manual
 
         } else if (harga instanceof filsafat) {
             filsafat t1 = (filsafat)harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());  // sama seperti penjelasan sebelumnya
+            double royalti = (double)totalPendapatan * (persen / 100);
             System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof sejarah) {
             sejarah t1 = (sejarah)harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());  // sama seperti penjelasan sebelumnya
+            double royalti = (double)totalPendapatan * (persen / 100);
             System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof agama) {
             agama t1 = (agama)harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
+            double royalti = (double)totalPendapatan * (persen / 100);
             System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof psikologi) {
             psikologi t1 = (psikologi) harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
+            double royalti = (double)totalPendapatan * (persen / 100);
             System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof politik) {
             politik t1 = (politik) harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
+            double royalti = (double)totalPendapatan * (persen / 100);
             System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         } else if (harga instanceof fiksi) {
             fiksi t1 = (fiksi) harga;
 
-            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual());
-            double royalti = (double)totalPendapatan * (persen / 100); // royalti 10%
+            int totalPendapatan = (t1.getHarga()) * (t1.getJumlahTerjual()); // sama seperti penjelasan sebelumnya
+            double royalti = (double)totalPendapatan * (persen / 100);
             System.out.println("\nRoyalti " + (int)persen + "% dalam sebulan untuk buku ini adalah Rp" + (int)royalti);
 
         }
@@ -856,17 +856,19 @@ public class PemdasPraktikumModul3 {
 
 
     
+// class class kategori 
+class teknologi { 
 
-class teknologi {
-
-    private String judul;
+    // private atribute karena oop
+    private String judul; 
     private String penulis;
     private String sinopsis;
     private int hargaBuku;
     private int jumlahTerjual;
 
-
-    public void buku1(String judul, String penulis) {
+    // isi buku dalam kategori
+    // dah penjelasannya itu terus sampai bawah
+    public void buku1(String judul, String penulis) { 
         this.judul = judul;
         this.penulis = penulis;
         this.sinopsis = "Dalam era teknologi modern, hubungan manusia dengan kecerdasan buatan semakin dekat. Buku ini membahas cara menciptakan AI Girlfriend—sebuah asisten virtual yang bisa berinteraksi secara emosional dan intelektual. Dengan kombinasi pemrograman, machine learning, dan desain interaksi, Anda dapat menciptakan teman digital yang mampu memahami, merespons, dan menemani Anda dalam berbagai situasi. Untuk memulai, Anda harus memahami konsep dasar AI Girlfriend. Ini bukan sekadar chatbot biasa, tetapi program yang mampu meniru percakapan manusia dengan baik. Anda harus memilih teknologi yang tepat, seperti menggunakan chatbot berbasis NLP atau AI yang dilatih dengan machine learning. Platform seperti Python, TensorFlow, dan GPT dapat membantu membangun sistem yang lebih canggih. Pastikan juga Anda menentukan bagaimana AI akan berkomunikasi—melalui teks, suara, atau bahkan integrasi dengan VR dan AR. Langkah berikutnya adalah merancang kepribadian AI. Anda harus menentukan bagaimana AI Anda berbicara, merespons, dan menunjukkan emosi. Model NLP akan membantu AI memahami konteks percakapan, sementara dataset yang luas bisa digunakan untuk melatihnya agar semakin personal. Anda bisa menyesuaikan nada bicara, gaya bahasa, dan preferensi percakapan sesuai dengan karakter yang diinginkan. Setelah kepribadian terbentuk, Anda perlu membangun database pengetahuan agar AI bisa merespons dengan lebih pintar dan alami. Latih AI dengan berbagai skenario dan gunakan reinforcement learning agar ia dapat belajar dari interaksi sebelumnya. Anda juga bisa menambahkan fitur pengenalan wajah atau suara sintetis yang lebih realistis untuk pengalaman yang lebih imersif. Untuk mengimplementasikan AI Girlfriend dalam aplikasi atau chatbot, Anda dapat menggunakan API seperti OpenAI atau Rasa. Pastikan UI/UX yang Anda buat nyaman digunakan, dengan tampilan yang menarik dan percakapan yang mengalir alami. Susunlah skenario interaksi yang beragam agar AI tidak terasa monoton dan lebih adaptif terhadap berbagai situasi. Jika ingin lebih canggih, Anda dapat mengintegrasikan AI dengan teknologi lanjutan seperti Computer Vision untuk mengenali ekspresi pengguna atau memanfaatkan VR guna menciptakan pengalaman lebih nyata. Dengan pengembangan yang berkelanjutan, AI Girlfriend bisa semakin mendekati interaksi manusia yang sesungguhnya. Membangun AI Girlfriend bukan hanya soal teknologi, tetapi juga memahami hubungan manusia dengan AI. Dengan pendekatan yang tepat, AI bisa menjadi teman digital yang menyenangkan dan bermanfaat. Jika Anda ingin belajar lebih lanjut, tersedia banyak sumber daya dan kursus yang bisa membantu Anda mengembangkan proyek ini dari nol.";
