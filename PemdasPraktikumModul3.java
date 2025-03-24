@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 public class PemdasPraktikumModul3 {
     
-    static private String kategori;
+    // dua instance variabel ini akan terus berada di memory selama program berjalan jadi bisa dipakai di semua method dan class
+    static private String kategori; 
     static private String judul;
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        teknologi teknologi = new teknologi();
+        // Tujuh deklarasi ini biar dari class lain bisa dipanggil di class main (class sekarang ini)
+        teknologi teknologi = new teknologi(); 
         filsafat filsafat = new filsafat();
         sejarah sejarah = new sejarah();
         agama agama = new agama();
@@ -16,6 +18,7 @@ public class PemdasPraktikumModul3 {
         politik politik = new politik();
         fiksi fiksi = new fiksi();
 
+        // cuman biar tampilannya bagus aja, nanti juga biar usernya tahu harus inputkan apa
         System.out.println("========================================");
         System.out.println("============TOKO BUKU ALVIN=============");
         System.out.println("========================================");
@@ -30,15 +33,17 @@ public class PemdasPraktikumModul3 {
         System.out.println("========================================");
         System.out.printf("SILAHKAN MASUKKAN [KATEGORI] [spasi] [JUDUL]\n");
 
-        while (true) {
+        while (true) { // pakai while jadi setelah menyelesaikan tugasnya mbalik buat nerima input lagi, sampai milih program exit
             
+            // mengisi variabel kategori dan judul di awal tadi dengan input user
             kategori = input.next().toLowerCase();
             judul = input.next().toLowerCase();
 
+            // pokok seluruh bawah ini dari t a sampai fi i1 intinya adalah menjalankan method buku di class kategori buku sesuai inputnya user
             switch (kategori) {
                 case "t":
                     switch (judul) {
-                        case "a":
+                        case "a": // misal ini yang dari input "t a" bakan njalanin method buku1 di class teknologi, sekaligus masukin judul dan penulisnya
                             teknologi.buku1("Cara Membuat AI Girlfirend","Gopi");
                             break;
                         case "b":
@@ -197,39 +202,38 @@ public class PemdasPraktikumModul3 {
                     }
                     break;
 
-                case "exit":
+                case "exit": // ini misalnya kalau bagian kategori diisi "exit" bakal keluar program, terserah setelah exit diisi apa, misal "exit meow"
                     input.close();
                     return;
 
-                default:
+                default: // ini kalau kalian salah isi input atau ngisi aneh aneh
                     System.out.println("input ndak valid :(");
                     break;
 
-            case "cek":
-                input.nextLine(); // Membersihkan newline yang tersisa
+            case "cek": // ini buat cek kesamaan buku mana dengan buku mana, terserah habis ngetik "cek" ngetik apa, misal "cek meyong"
+                input.nextLine(); // Membersihkan newline yang tersisa, sebelum dikasih ini gampang kenyang input
             
-                // Membaca input pertama (a b)
-                System.out.println("Masukkan buku pertama:");
-                String[] inputPertama = input.nextLine().split(" ");
-                String cekKategori = inputPertama[0].toLowerCase();
-                String cekJudul = inputPertama[1].toLowerCase();
+                // Membaca input pertama
+                System.out.println("Masukkan buku pertama:"); // nyuruh masukin buku pertama, also kalau keluar tulisan ini berarti masuk ke tugas yang pengecekan dua buku
+                String[] inputPertama = input.nextLine().split(" "); // bakal nyimpan input dengan batasan spasi ke array inputPertama, karena kalau pakai versi non-array banyak masalah
+                String cekKategori = inputPertama[0].toLowerCase(); // bakal keisi input sebelum spasi
+                String cekJudul = inputPertama[1].toLowerCase(); // bakal keisi input sesudah spasi
             
-                // Membaca input kedua (x y)
-                System.out.println("Masukkan buku kedua:");
+                // Membaca input kedua
+                System.out.println("Masukkan buku kedua:"); // sama kayak membaca input yang pertama, tapi ini untuk input kedua
                 String[] inputKedua = input.nextLine().split(" ");
                 String cekKategoriKedua = inputKedua[0].toLowerCase();
                 String cekJudulKedua = inputKedua[1].toLowerCase();
             
-                // Membuat objek buku pertama
-                Object buku1 = null;
-                Object buku2 = null;
+                Object buku1 = null; // objek buku pertama buat dibandingkan sama objek buku kedua
+                Object buku2 = null; // objek buku kedua buat dibandingkan sama objek buku pertama
             
-                // Membuat objek buku pertama berdasarkan kategori
+                // Menjalankan method di class kategori dan dari itu bakal di get dan dibandingkan sama pengecek kedua
                 switch (cekKategori) {
                     case "t":
-                        buku1 = new teknologi();
+                        buku1 = new teknologi(); 
                         switch (cekJudul) {
-                            case "a": ((teknologi) buku1).buku1("Cara Membuat AI Girlfriend", "Gopi"); break;
+                            case "a": ((teknologi) buku1).buku1("Cara Membuat AI Girlfriend", "Gopi"); break; // semua yang kayak gini intinya datanya bakal masuk ke object buku1 atau buku2, sesuai objek yang ditugaskan yang mana, dan bakal dicekkan sama buku lainnya
                             case "b": ((teknologi) buku1).buku2("Cara Membajak laptop Dewa", "Gopi"); break;
                             case "c": ((teknologi) buku1).buku3("Duri Smart City 2077", "Akhmad"); break;
                             case "d": ((teknologi) buku1).buku4("di Masa Depan Indonesia Sudah Mengapung", "Ayunda Risu"); break;
@@ -241,7 +245,7 @@ public class PemdasPraktikumModul3 {
                     case "f":
                         buku1 = new filsafat();
                         switch (cekJudul) {
-                            case "f": ((filsafat) buku1).buku1("Wong Liyo Ngerti Opo", "Udin"); break;
+                            case "f": ((filsafat) buku1).buku1("Wong Liyo Ngerti Opo", "Udin"); break; // sama kayak di atas
                             case "g": ((filsafat) buku1).buku2("Aku Ada Maka Aku Salto", "Rudi Tabooti"); break;
                             case "h": ((filsafat) buku1).buku3("Manusia Hanyalah Alat", "Samuel"); break;
                             case "i": ((filsafat) buku1).buku4("Sehat Pangkal Hidup", "Hafiz dan Udin"); break;
@@ -253,7 +257,7 @@ public class PemdasPraktikumModul3 {
                     case "s":
                         buku1 = new sejarah();
                         switch (cekJudul) {
-                            case "k": ((sejarah) buku1).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break;
+                            case "k": ((sejarah) buku1).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break; // sama kayak di atas
                             case "l": ((sejarah) buku1).buku2("Indonesia Merdeka pada 1900", "Suwekarno"); break;
                             case "m": ((sejarah) buku1).buku3("Duri Ibukota Indonesia Tahun 2000", "Garylbert"); break;
                             case "n": ((sejarah) buku1).buku4("Hitler Mati di Nganjuk", "Amelia Watson"); break;
@@ -265,7 +269,7 @@ public class PemdasPraktikumModul3 {
                     case "a":
                         buku1 = new agama();
                         switch (cekJudul) {
-                            case "p": ((agama) buku1).buku1("Hukum Mafia Pentol", "Immanuel"); break;
+                            case "p": ((agama) buku1).buku1("Hukum Mafia Pentol", "Immanuel"); break; // sama kayak di atas
                             case "q": ((agama) buku1).buku2("Hukum Rasisme kepada Sesama Kulit", "Akhmad"); break;
                             case "r": ((agama) buku1).buku3("Manfaat Berdoa Sebelum Ngasih Contekan", "Hafiz"); break;
                             case "s": ((agama) buku1).buku4("Bersabarlah Kepada Teman Beban", "Immanuel"); break;
@@ -277,7 +281,7 @@ public class PemdasPraktikumModul3 {
                     case "ps":
                         buku1 = new psikologi();
                         switch (cekJudul) {
-                            case "u": ((psikologi) buku1).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break;
+                            case "u": ((psikologi) buku1).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break; // sama kayak di atas
                             case "v": ((psikologi) buku1).buku2("Atomic Habits", "Gopi dan James"); break;
                             case "w": ((psikologi) buku1).buku3("Manfaat Bermain Game Disaat Dosen Mengajar", "Gilbert"); break;
                             case "x": ((psikologi) buku1).buku4("Besok Cium Cerminmu Sambil Bilang Kamu Bisa Lolos PTN", "Ahza dan Hasan"); break;
@@ -289,7 +293,7 @@ public class PemdasPraktikumModul3 {
                     case "po":
                         buku1 = new politik();
                         switch (cekJudul) {
-                            case "z": ((politik) buku1).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break;
+                            case "z": ((politik) buku1).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break; // sama kayak di atas
                             case "a1": ((politik) buku1).buku2("Indonesia Bisa Lock In", "Ridhwan lathifan Faza"); break;
                             case "b1": ((politik) buku1).buku3("Manfaat Menjual Pulau Madura ke Amerika", "Rafi Kamasyamsi dan Tian Septian"); break;
                             case "c1": ((politik) buku1).buku4("Indonesia Merdeka Sejak Dijajah Inggris", "Ahza Kamil dan Muhammad Alvin Satria"); break;
@@ -301,7 +305,7 @@ public class PemdasPraktikumModul3 {
                     case "fi":
                         buku1 = new fiksi();
                         switch (cekJudul) {
-                            case "e1": ((fiksi) buku1).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break;
+                            case "e1": ((fiksi) buku1).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break; // sama kayak di atas
                             case "f1": ((fiksi) buku1).buku2("Anjingku Memberikan Aku Kekuatan dan Sekarang Aku Harus Mengalahkan Raja Iblis", "Alvin dan Dewa"); break;
                             case "g1": ((fiksi) buku1).buku3("Kucingku Berubah Jadi Manusia dan Aku Menikahinya", "Miko Syaiful"); break;
                             case "h1": ((fiksi) buku1).buku4("Waifu Setiap Orang di Kota Malang Tiba Tiba Nyata", "Alvin Sukarnoputra"); break;
@@ -315,12 +319,12 @@ public class PemdasPraktikumModul3 {
                         break;
                 }
             
-                // Membuat objek buku kedua berdasarkan kategori
+                // Menjalankan method di class kategori dan dari itu bakal di get dan dibandingkan sama pengecek pertama
                 switch (cekKategoriKedua) {
                     case "t":
                         buku2 = new teknologi();
                         switch (cekJudulKedua) {
-                            case "a": ((teknologi) buku2).buku1("Cara Membuat AI Girlfriend", "Gopi"); break;
+                            case "a": ((teknologi) buku2).buku1("Cara Membuat AI Girlfriend", "Gopi"); break; // sama kayak yang pertama, tapi nanti objek buku2 diisi sama yang bukunya ada isinya dan dibandingkan sama buku1
                             case "b": ((teknologi) buku2).buku2("Cara Membajak laptop Dewa", "Gopi"); break;
                             case "c": ((teknologi) buku2).buku3("Duri Smart City 2077", "Akhmad"); break;
                             case "d": ((teknologi) buku2).buku4("di Masa Depan Indonesia Sudah Mengapung", "Ayunda Risu"); break;
@@ -332,7 +336,7 @@ public class PemdasPraktikumModul3 {
                     case "f":
                         buku2 = new filsafat();
                         switch (cekJudulKedua) {
-                            case "f": ((filsafat) buku2).buku1("Wong Liyo Ngerti Opo", "Udin"); break;
+                            case "f": ((filsafat) buku2).buku1("Wong Liyo Ngerti Opo", "Udin"); break; // sama kayak di atas
                             case "g": ((filsafat) buku2).buku2("Aku Ada Maka Aku Salto", "Rudi Tabooti"); break;
                             case "h": ((filsafat) buku2).buku3("Manusia Hanyalah Alat", "Samuel"); break;
                             case "i": ((filsafat) buku2).buku4("Sehat Pangkal Hidup", "Hafiz dan Udin"); break;
@@ -344,7 +348,7 @@ public class PemdasPraktikumModul3 {
                     case "s":
                         buku2 = new sejarah();
                         switch (cekJudulKedua) {
-                            case "k": ((sejarah) buku2).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break;
+                            case "k": ((sejarah) buku2).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break; // sama kayak di atas
                             case "l": ((sejarah) buku2).buku2("Indonesia Merdeka pada 1900", "Suwekarno"); break;
                             case "m": ((sejarah) buku2).buku3("Duri Ibukota Indonesia Tahun 2000", "Garylbert"); break;
                             case "n": ((sejarah) buku2).buku4("Hitler Mati di Nganjuk", "Amelia Watson"); break;
@@ -356,7 +360,7 @@ public class PemdasPraktikumModul3 {
                     case "a":
                         buku2 = new agama();
                         switch (cekJudulKedua) {
-                            case "p": ((agama) buku2).buku1("Hukum Mafia Pentol", "Immanuel"); break;
+                            case "p": ((agama) buku2).buku1("Hukum Mafia Pentol", "Immanuel"); break; // sama kayak di atas
                             case "q": ((agama) buku2).buku2("Hukum Rasisme kepada Sesama Kulit", "Akhmad"); break;
                             case "r": ((agama) buku2).buku3("Manfaat Berdoa Sebelum Ngasih Contekan", "Hafiz"); break;
                             case "s": ((agama) buku2).buku4("Bersabarlah Kepada Teman Beban", "Immanuel"); break;
@@ -368,7 +372,7 @@ public class PemdasPraktikumModul3 {
                     case "ps":
                         buku2 = new psikologi();
                         switch (cekJudulKedua) {
-                            case "u": ((psikologi) buku2).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break;
+                            case "u": ((psikologi) buku2).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break; // sama kayak di atas
                             case "v": ((psikologi) buku2).buku2("Atomic Habits", "Gopi dan James"); break;
                             case "w": ((psikologi) buku2).buku3("Manfaat Bermain Game Disaat Dosen Mengajar", "Gilbert"); break;
                             case "x": ((psikologi) buku2).buku4("Besok Cium Cerminmu Sambil Bilang Kamu Bisa Lolos PTN", "Ahza dan Hasan"); break;
@@ -380,7 +384,7 @@ public class PemdasPraktikumModul3 {
                     case "po":
                         buku2 = new politik();
                         switch (cekJudulKedua) {
-                            case "z": ((politik) buku2).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break;
+                            case "z": ((politik) buku2).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break; // sama kayak di atas
                             case "a1": ((politik) buku2).buku2("Indonesia Bisa Lock In", "Ridhwan lathifan Faza"); break;
                             case "b1": ((politik) buku2).buku3("Manfaat Menjual Pulau Madura ke Amerika", "Rafi Kamasyamsi dan Tian Septian"); break;
                             case "c1": ((politik) buku2).buku4("Indonesia Merdeka Sejak Dijajah Inggris", "Ahza Kamil dan Muhammad Alvin Satria"); break;
@@ -392,7 +396,7 @@ public class PemdasPraktikumModul3 {
                     case "fi":
                         buku2 = new fiksi();
                         switch (cekJudulKedua) {
-                            case "e1": ((fiksi) buku2).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break;
+                            case "e1": ((fiksi) buku2).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break; // sama kayak di atas
                             case "f1": ((fiksi) buku2).buku2("Anjingku Memberikan Aku Kekuatan dan Sekarang Aku Harus Mengalahkan Raja Iblis", "Alvin dan Dewa"); break;
                             case "g1": ((fiksi) buku2).buku3("Kucingku Berubah Jadi Manusia dan Aku Menikahinya", "Miko Syaiful"); break;
                             case "h1": ((fiksi) buku2).buku4("Waifu Setiap Orang di Kota Malang Tiba Tiba Nyata", "Alvin Sukarnoputra"); break;
@@ -402,36 +406,36 @@ public class PemdasPraktikumModul3 {
                         break;
             
                     default:
-                        System.out.println("Kategori tidak valid.");
+                        System.out.println("Kategori tidak valid."); // kalau inputnya salah atau aneh aneh
                         break;
                 }
             
                 // Bandingkan buku
                 if (buku1 != null && buku2 != null) {
                     PemdasPraktikum instance = new PemdasPraktikum(); // biar bisa menjalankan BandingkanBuku() tanpa static
-                    instance.BandingkanBuku(buku1, buku2); // "instance." ini bekerjasama dengan atasnya persis biar manggil BandingkanBuku() tanpa static
+                    instance.BandingkanBuku(buku1, buku2); // "instance." ini bekerjasama dengan atasnya biar manggil BandingkanBuku() tanpa static, soalnya kalau method BandingkanBuku pakai static, programnya error karena hanya boleh ada 1 method static
                 } else {
                     System.out.println("Tidak dapat membandingkan buku karena input tidak valid.");
                 }
                 break;
 
-                case "royalti":
+                case "royalti": // ini kalau semisal ngetik "royalti" di input awal awal instead of kategori buku
                 input.nextLine(); // Membersihkan newline yang tersisa
                 
                     switch (judul) {
-                        case "saja":
+                        case "saja": // ini misal ketika kata yang dibarengi setelah "royalti" adalah "saja", ini mengerjakan tugas yang nomor 3 yang ngecek royalti 10% dari penjualan bulan itu
                         System.out.println("Masukkan buku yang ingin dicek royaltinya:");
-                        String[] inputRoyalti = input.nextLine().split(" ");
+                        String[] inputRoyalti = input.nextLine().split(" "); // menginputkan lagi tapi untuk ngitung royalti satu buku
                         String royaltiKategori = inputRoyalti[0].toLowerCase();
                         String royaltiJudul = inputRoyalti[1].toLowerCase();
 
-                        Object royaltiBuku = null;
+                        Object royaltiBuku = null; // ini objek dimana nanti get berapa harga buku dan jumlah terjualnya dari method buku yang dijalankan
 
                         switch(royaltiKategori){
                             case "t":
                             royaltiBuku = new teknologi();
                                 switch(royaltiJudul){
-                                    case "a": ((teknologi) royaltiBuku).buku1("Cara Membuat AI Girlfriend", "Gopi"); break;
+                                    case "a": ((teknologi) royaltiBuku).buku1("Cara Membuat AI Girlfriend", "Gopi"); break; // nanti menjalankan method buku dan bakal dimasukkan ke objek royaltiBuku buat dihitung royalti 10%nya
                                     case "b": ((teknologi) royaltiBuku).buku2("Cara Membajak laptop Dewa", "Gopi"); break;
                                     case "c": ((teknologi) royaltiBuku).buku3("Duri Smart City 2077", "Akhmad"); break;
                                     case "d": ((teknologi) royaltiBuku).buku4("di Masa Depan Indonesia Sudah Mengapung", "Ayunda Risu"); break;
@@ -442,7 +446,7 @@ public class PemdasPraktikumModul3 {
                             case "f":
                             royaltiBuku = new filsafat();
                                 switch (royaltiJudul) {
-                                    case "f": ((filsafat) royaltiBuku).buku1("Wong Liyo Ngerti Opo", "Udin"); break;
+                                    case "f": ((filsafat) royaltiBuku).buku1("Wong Liyo Ngerti Opo", "Udin"); break; // sama kayak di atas
                                     case "g": ((filsafat) royaltiBuku).buku2("Aku Ada Maka Aku Salto", "Rudi Tabooti"); break;
                                     case "h": ((filsafat) royaltiBuku).buku3("Manusia Hanyalah Alat", "Samuel"); break;
                                     case "i": ((filsafat) royaltiBuku).buku4("Sehat Pangkal Hidup", "Hafiz dan Udin"); break;
@@ -454,7 +458,7 @@ public class PemdasPraktikumModul3 {
                             case "s":
                             royaltiBuku = new sejarah();
                                 switch (royaltiJudul) {
-                                case "k": ((sejarah) royaltiBuku).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break;
+                                case "k": ((sejarah) royaltiBuku).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break; // sama kayak di atas
                                 case "l": ((sejarah) royaltiBuku).buku2("Indonesia Merdeka pada 1900", "Suwekarno"); break;
                                 case "m": ((sejarah) royaltiBuku).buku3("Duri Ibukota Indonesia Tahun 2000", "Garylbert"); break;
                                 case "n": ((sejarah) royaltiBuku).buku4("Hitler Mati di Nganjuk", "Amelia Watson"); break;
@@ -466,7 +470,7 @@ public class PemdasPraktikumModul3 {
                             case "a":
                             royaltiBuku = new agama();
                             switch (royaltiJudul) {
-                                case "p": ((agama) royaltiBuku).buku1("Hukum Mafia Pentol", "Immanuel"); break;
+                                case "p": ((agama) royaltiBuku).buku1("Hukum Mafia Pentol", "Immanuel"); break; // sama kayak di atas
                                 case "q": ((agama) royaltiBuku).buku2("Hukum Rasisme kepada Sesama Kulit", "Akhmad"); break;
                                 case "r": ((agama) royaltiBuku).buku3("Manfaat Berdoa Sebelum Ngasih Contekan", "Hafiz"); break;
                                 case "s": ((agama) royaltiBuku).buku4("Bersabarlah Kepada Teman Beban", "Immanuel"); break;
@@ -478,7 +482,7 @@ public class PemdasPraktikumModul3 {
                             case "ps":
                             royaltiBuku = new psikologi();
                             switch (royaltiJudul) {
-                                case "u": ((psikologi) royaltiBuku).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break;
+                                case "u": ((psikologi) royaltiBuku).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break; // sama kayak di atas
                                 case "v": ((psikologi) royaltiBuku).buku2("Atomic Habits", "Gopi dan James"); break;
                                 case "w": ((psikologi) royaltiBuku).buku3("Manfaat Bermain Game Disaat Dosen Mengajar", "Gilbert"); break;
                                 case "x": ((psikologi) royaltiBuku).buku4("Besok Cium Cerminmu Sambil Bilang Kamu Bisa Lolos PTN", "Ahza dan Hasan"); break;
@@ -490,7 +494,7 @@ public class PemdasPraktikumModul3 {
                             case "po":
                             royaltiBuku = new politik();
                             switch (royaltiJudul) {
-                                case "z": ((politik) royaltiBuku).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break;
+                                case "z": ((politik) royaltiBuku).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break; // sama kayak di atas
                                 case "a1": ((politik) royaltiBuku).buku2("Indonesia Bisa Lock In", "Ridhwan lathifan Faza"); break;
                                 case "b1": ((politik) royaltiBuku).buku3("Manfaat Menjual Pulau Madura ke Amerika", "Rafi Kamasyamsi dan Tian Septian"); break;
                                 case "c1": ((politik) royaltiBuku).buku4("Indonesia Merdeka Sejak Dijajah Inggris", "Ahza Kamil dan Muhammad Alvin Satria"); break;
@@ -502,7 +506,7 @@ public class PemdasPraktikumModul3 {
                             case "fi":
                             royaltiBuku = new fiksi();
                             switch (royaltiJudul) {
-                                case "e1": ((fiksi) royaltiBuku).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break;
+                                case "e1": ((fiksi) royaltiBuku).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break; // sama kayak di atas
                                 case "f1": ((fiksi) royaltiBuku).buku2("Anjingku Memberikan Aku Kekuatan dan Sekarang Aku Harus Mengalahkan Raja Iblis", "Alvin dan Dewa"); break;
                                 case "g1": ((fiksi) royaltiBuku).buku3("Kucingku Berubah Jadi Manusia dan Aku Menikahinya", "Miko Syaiful"); break;
                                 case "h1": ((fiksi) royaltiBuku).buku4("Waifu Setiap Orang di Kota Malang Tiba Tiba Nyata", "Alvin Sukarnoputra"); break;
@@ -512,7 +516,7 @@ public class PemdasPraktikumModul3 {
                                 break;
             
                             default:
-                            System.out.println("Kategori tidak valid.");
+                            System.out.println("Kategori tidak valid."); // kalo isi aneh aneh, misal "I goon to genshin impact"
                             break;
             
                         }
@@ -525,22 +529,22 @@ public class PemdasPraktikumModul3 {
                         
                         break;
                         
-                        case "persen":
+                        case "persen": // ini kalau kalian input "royalti persen" instead of "royalti saja"
                     System.out.println("Masukkan buku yang ingin dicek royaltinya dengan menulis persen secara manual:");
-                        String[] inputRoyalti2 = input.nextLine().split(" ");
+                        String[] inputRoyalti2 = input.nextLine().split(" "); // masukkan data buku yang di pilih + pengen liat berapa persen royalti secara manual
                         String royaltiKategori2 = inputRoyalti2[0].toLowerCase();
                         String royaltiJudul2 = inputRoyalti2[1].toLowerCase();
-                        String persennya = inputRoyalti2[2];
+                        String persennya = inputRoyalti2[2]; // diisi persen royalti semaunya
 
-                        double persen = Double.parseDouble(persennya);
+                        double persen = Double.parseDouble(persennya); // ngubah String persen dari String jadi double biar bisa diitung
 
-                        Object royaltiBuku2 = null;
+                        Object royaltiBuku2 = null; // sebenarnya sama kayak royaltiBuku, tapi ndak boleh sama jadi saya tambah "2" di belakangnya
 
                         switch(royaltiKategori2){
                             case "t":
                             royaltiBuku2 = new teknologi();
                                 switch(royaltiJudul2){
-                                    case "a": ((teknologi) royaltiBuku2).buku1("Cara Membuat AI Girlfriend", "Gopi"); break;
+                                    case "a": ((teknologi) royaltiBuku2).buku1("Cara Membuat AI Girlfriend", "Gopi"); break; // nanti menjalankan method buku dan bakal dimasukkan ke objek royaltiBuku buat dihitung royalti berapa persen terserahnya
                                     case "b": ((teknologi) royaltiBuku2).buku2("Cara Membajak laptop Dewa", "Gopi"); break;
                                     case "c": ((teknologi) royaltiBuku2).buku3("Duri Smart City 2077", "Akhmad"); break;
                                     case "d": ((teknologi) royaltiBuku2).buku4("di Masa Depan Indonesia Sudah Mengapung", "Ayunda Risu"); break;
@@ -551,7 +555,7 @@ public class PemdasPraktikumModul3 {
                             case "f":
                             royaltiBuku2 = new filsafat();
                                 switch (royaltiJudul2) {
-                                    case "f": ((filsafat) royaltiBuku2).buku1("Wong Liyo Ngerti Opo", "Udin"); break;
+                                    case "f": ((filsafat) royaltiBuku2).buku1("Wong Liyo Ngerti Opo", "Udin"); break; // sama kayak di atas
                                     case "g": ((filsafat) royaltiBuku2).buku2("Aku Ada Maka Aku Salto", "Rudi Tabooti"); break;
                                     case "h": ((filsafat) royaltiBuku2).buku3("Manusia Hanyalah Alat", "Samuel"); break;
                                     case "i": ((filsafat) royaltiBuku2).buku4("Sehat Pangkal Hidup", "Hafiz dan Udin"); break;
@@ -563,7 +567,7 @@ public class PemdasPraktikumModul3 {
                             case "s":
                             royaltiBuku2 = new sejarah();
                                 switch (royaltiJudul2) {
-                                case "k": ((sejarah) royaltiBuku2).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break;
+                                case "k": ((sejarah) royaltiBuku2).buku1("Warna Celana Dalam Leonardo", "Adolf Nickler"); break; // sama kayak di atas
                                 case "l": ((sejarah) royaltiBuku2).buku2("Indonesia Merdeka pada 1900", "Suwekarno"); break;
                                 case "m": ((sejarah) royaltiBuku2).buku3("Duri Ibukota Indonesia Tahun 2000", "Garylbert"); break;
                                 case "n": ((sejarah) royaltiBuku2).buku4("Hitler Mati di Nganjuk", "Amelia Watson"); break;
@@ -575,7 +579,7 @@ public class PemdasPraktikumModul3 {
                             case "a":
                             royaltiBuku2 = new agama();
                             switch (royaltiJudul2) {
-                                case "p": ((agama) royaltiBuku2).buku1("Hukum Mafia Pentol", "Immanuel"); break;
+                                case "p": ((agama) royaltiBuku2).buku1("Hukum Mafia Pentol", "Immanuel"); break; // sama kayak di atas
                                 case "q": ((agama) royaltiBuku2).buku2("Hukum Rasisme kepada Sesama Kulit", "Akhmad"); break;
                                 case "r": ((agama) royaltiBuku2).buku3("Manfaat Berdoa Sebelum Ngasih Contekan", "Hafiz"); break;
                                 case "s": ((agama) royaltiBuku2).buku4("Bersabarlah Kepada Teman Beban", "Immanuel"); break;
@@ -587,7 +591,7 @@ public class PemdasPraktikumModul3 {
                             case "ps":
                             royaltiBuku2 = new psikologi();
                             switch (royaltiJudul2) {
-                                case "u": ((psikologi) royaltiBuku2).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break;
+                                case "u": ((psikologi) royaltiBuku2).buku1("Bagaimana Autisme Mengubah Hidup Saya", "Akhmad"); break; // sama kayak di atas
                                 case "v": ((psikologi) royaltiBuku2).buku2("Atomic Habits", "Gopi dan James"); break;
                                 case "w": ((psikologi) royaltiBuku2).buku3("Manfaat Bermain Game Disaat Dosen Mengajar", "Gilbert"); break;
                                 case "x": ((psikologi) royaltiBuku2).buku4("Besok Cium Cerminmu Sambil Bilang Kamu Bisa Lolos PTN", "Ahza dan Hasan"); break;
@@ -599,7 +603,7 @@ public class PemdasPraktikumModul3 {
                             case "po":
                             royaltiBuku2 = new politik();
                             switch (royaltiJudul2) {
-                                case "z": ((politik) royaltiBuku2).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break;
+                                case "z": ((politik) royaltiBuku2).buku1("Jatuhkan Hukuman Tusbol Ke Koruptor", "Rafi Sukma"); break; // sama kayak di atas
                                 case "a1": ((politik) royaltiBuku2).buku2("Indonesia Bisa Lock In", "Ridhwan lathifan Faza"); break;
                                 case "b1": ((politik) royaltiBuku2).buku3("Manfaat Menjual Pulau Madura ke Amerika", "Rafi Kamasyamsi dan Tian Septian"); break;
                                 case "c1": ((politik) royaltiBuku2).buku4("Indonesia Merdeka Sejak Dijajah Inggris", "Ahza Kamil dan Muhammad Alvin Satria"); break;
@@ -611,7 +615,7 @@ public class PemdasPraktikumModul3 {
                             case "fi":
                             royaltiBuku2 = new fiksi();
                             switch (royaltiJudul2) {
-                                case "e1": ((fiksi) royaltiBuku2).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break;
+                                case "e1": ((fiksi) royaltiBuku2).buku1("Indonesia Emas 2045", "Akhmad Syaiful dan Alvin"); break; // sama kayak di atas
                                 case "f1": ((fiksi) royaltiBuku2).buku2("Anjingku Memberikan Aku Kekuatan dan Sekarang Aku Harus Mengalahkan Raja Iblis", "Alvin dan Dewa"); break;
                                 case "g1": ((fiksi) royaltiBuku2).buku3("Kucingku Berubah Jadi Manusia dan Aku Menikahinya", "Miko Syaiful"); break;
                                 case "h1": ((fiksi) royaltiBuku2).buku4("Waifu Setiap Orang di Kota Malang Tiba Tiba Nyata", "Alvin Sukarnoputra"); break;
@@ -621,13 +625,13 @@ public class PemdasPraktikumModul3 {
                                 break;
             
                             default:
-                            System.out.println("Kategori tidak valid.");
+                            System.out.println("Kategori tidak valid."); // kalau isi salah atau ndak jelas kayak "Nothing happen in Indonesia March 2025"
                             break;
             
                         }
                         if (royaltiBuku2 != null) {
                             PemdasPraktikum instance = new PemdasPraktikum(); // biar bisa menjalankan BandingkanBuku() tanpa static
-                            instance.hitungRoyaltiPersen(royaltiBuku2, persen); // "instance." ini bekerjasama dengan atasnya persis biar manggil BandingkanBuku() tanpa static
+                            instance.hitungRoyaltiPersen(royaltiBuku2, persen); // yang ini bakal masukin persen keinginannya
                         } else {
                             System.out.println("Tidak dapat membandingkan buku karena input tidak valid.");
                         } break;
@@ -638,7 +642,7 @@ public class PemdasPraktikumModul3 {
             }
         }
     }
-    public void BandingkanBuku(Object buku1, Object buku2) {
+    public void BandingkanBuku(Object buku1, Object buku2) { 
         byte persentase = 0;
 
         if (buku1 instanceof teknologi && buku2 instanceof teknologi) {
